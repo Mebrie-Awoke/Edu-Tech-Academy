@@ -1,0 +1,78 @@
+:root{
+  --primary: #0d6efd;
+  --muted: #6c757d;
+  --bg-hero: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80&auto=format&fit=crop');
+  --card-radius: 12px;
+  --glass: rgba(255,255,255,0.8);
+  --accent: #0b5ed7;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+body {
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.hero-section {
+  background-image: var(--bg-hero);
+  background-size: cover;
+  background-position: center;
+  min-height: 52vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,110,253,0.15), rgba(0,0,0,0.35));
+  z-index: 0;
+}
+.hero-section .container { z-index: 2; }
+.feature-card, .card.course-card {
+  border-radius: var(--card-radius);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.feature-card:hover, .course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(12, 22, 40, 0.12);
+}
+.course-card img {
+  height: 170px;
+  object-fit: cover;
+  border-top-left-radius: var(--card-radius);
+  border-top-right-radius: var(--card-radius);
+}
+
+.enroll-btn {
+  transition: transform .15s ease;
+}
+.enroll-btn:hover {
+  transform: translateY(-3px);
+}
+
+.footer { background: hsl(0, 96%, 81%); }
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: 0;
+  border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+  .hero-section { min-height: 40vh; padding: 3rem 1rem; }
+  .course-card img { height: 140px; }
+}
+a.nav-link.active { font-weight: 600; color: var(--primary) !important; }
